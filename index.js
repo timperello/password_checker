@@ -2,6 +2,8 @@
 import './style.css';
 
 let btn = document.getElementById('passwdCheck');
+let result = document.getElementById('result');
+
 console.log(btn);
 btn.addEventListener('click', function () {
   let input = document.getElementById('passwdInput').value;
@@ -9,7 +11,12 @@ btn.addEventListener('click', function () {
 
   rockyou.every((e) => {
     if (e == input) {
-      console.log(e + ' : ' + i);
+      result.innerText =
+        'The password : ' +
+        e +
+        ' is the ' +
+        i +
+        'th most used password in the world (according to rockyou.txt)';
       return false;
     }
     i++;
