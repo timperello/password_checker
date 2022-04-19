@@ -3,9 +3,11 @@ import './style.css';
 
 let btn = document.getElementById('passwdCheck');
 let result = document.getElementById('result');
+let resultsDiv = document.getElementById('resultsDiv');
 
 console.log(btn);
 btn.addEventListener('click', function () {
+  let found = false;
   let input = document.getElementById('passwdInput').value;
   let i = 1;
 
@@ -16,12 +18,20 @@ btn.addEventListener('click', function () {
         e +
         ' is the ' +
         i +
-        'th most used password in the world (according to rockyou.txt)';
+        'th most used password in the wordlist rockyou.txt';
+      found = true;
+      resultsDiv.classList.remove('safe');
+      resultsDiv.classList.add('found');
       return false;
     }
     i++;
     return true;
   });
+  if (found == false) {
+    result.innerText = 'The password : ' + input + ' seems to be safe';
+    resultsDiv.classList.remove('found');
+    resultsDiv.classList.add('safe');
+  }
 });
 
 const rockyou = [
