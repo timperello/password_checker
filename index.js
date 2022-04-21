@@ -6,7 +6,6 @@ let result = document.getElementById('result');
 let resultsDiv = document.getElementById('resultsDiv');
 let checkBtn = document.getElementById('check1');
 
-console.log(btn);
 btn.addEventListener('click', function () {
   let found = false;
   let input = document.getElementById('passwdInput').value;
