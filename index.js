@@ -14,9 +14,9 @@ btn.addEventListener('click', function () {
   rockyou.every((e) => {
     if (e == input) {
       result.innerText =
-        'The password : ' +
+        'The password : "' +
         e +
-        ' is the ' +
+        '" is the ' +
         i +
         'th most used password in the wordlist rockyou.txt';
       found = true;
@@ -29,7 +29,7 @@ btn.addEventListener('click', function () {
     return true;
   });
   if (found == false) {
-    result.innerText = 'The password : ' + input + ' seems to be safe';
+    result.innerText = 'The password : "' + input + '" seems to be safe';
     resultsDiv.classList.remove('found');
     resultsDiv.classList.add('safe');
     checkBtn.checked = true;

@@ -110,7 +110,7 @@ input {
 }
 
 .safe {
-  border: 3px solid hsl(100, 70%, 60%);
+  border: 3px solid hsl(130, 80%, 60%);
 }
 
 input[type='checkbox'].toggle {
@@ -120,21 +120,12 @@ input[type='checkbox'].toggle {
   top: -9000px;
 }
 
-input[type='checkbox'].toggle + label {
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
 input[type='checkbox'].toggle + label::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   content: '\2715';
   font-size: 3em;
-  height: 0.9em;
   left: 0.2em;
   width: 1.8em;
   height: 1.8em;
@@ -150,10 +141,12 @@ input[type='checkbox'].toggle:focus + label::before {
 
 input[type='checkbox'].toggle:checked + label::after {
   content: '\2713';
-  background-color: hsl(100, 70%, 60%);
+  background-color: hsl(130, 80%, 60%);
 }
 
-label {
-  display: inline-block;
-  vertical-align: top;
+#checkedDiv {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding-top: 10px;
 }
