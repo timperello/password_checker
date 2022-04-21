@@ -4,6 +4,7 @@ import './style.css';
 let btn = document.getElementById('passwdCheck');
 let result = document.getElementById('result');
 let resultsDiv = document.getElementById('resultsDiv');
+let checkBtn = document.getElementById('check1');
 
 console.log(btn);
 btn.addEventListener('click', function () {
@@ -22,6 +23,7 @@ btn.addEventListener('click', function () {
       found = true;
       resultsDiv.classList.remove('safe');
       resultsDiv.classList.add('found');
+      checkBtn.checked = false;
       return false;
     }
     i++;
@@ -31,6 +33,7 @@ btn.addEventListener('click', function () {
     result.innerText = 'The password : ' + input + ' seems to be safe';
     resultsDiv.classList.remove('found');
     resultsDiv.classList.add('safe');
+    checkBtn.checked = true;
   }
 });
 
