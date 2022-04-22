@@ -5,34 +5,37 @@ let btn = document.getElementById('passwdCheck');
 let result = document.getElementById('result');
 let resultsDiv = document.getElementById('resultsDiv');
 let checkBtn = document.getElementById('check1');
+let checkedDiv = document.getElementById('checkedDiv');
 
 btn.addEventListener('click', function () {
   let found = false;
   let input = document.getElementById('passwdInput').value;
   let i = 1;
-
-  rockyou.every((e) => {
-    if (e == input) {
-      result.innerText =
-        'The password : "' +
-        e +
-        '" is the ' +
-        i +
-        'th most used password in the wordlist rockyou.txt';
-      found = true;
-      resultsDiv.classList.remove('safe');
-      resultsDiv.classList.add('found');
-      checkBtn.checked = false;
-      return false;
+  if (input != '') {
+    checkedDiv.style.opacity = 1;
+    rockyou.every((e) => {
+      if (e == input) {
+        result.innerHTML =
+          'The password : "' +
+          e +
+          '" is the ' +
+          i +
+          'th most used password in the wordlist <a href="https://github.com/redfiles/rockyou.txt" target=_blank>rockyou.txt</a>';
+        found = true;
+        resultsDiv.classList.remove('safe');
+        resultsDiv.classList.add('found');
+        checkBtn.checked = false;
+        return false;
+      }
+      i++;
+      return true;
+    });
+    if (found == false) {
+      result.innerText = 'The password : "' + input + '" seems to be safe';
+      resultsDiv.classList.remove('found');
+      resultsDiv.classList.add('safe');
+      checkBtn.checked = true;
     }
-    i++;
-    return true;
-  });
-  if (found == false) {
-    result.innerText = 'The password : "' + input + '" seems to be safe';
-    resultsDiv.classList.remove('found');
-    resultsDiv.classList.add('safe');
-    checkBtn.checked = true;
   }
 });
 
