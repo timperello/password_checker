@@ -18,9 +18,11 @@ btn.addEventListener('click', function () {
         result.innerHTML =
           'The password : "' +
           e +
-          '" is the ' +
+          '" is at the position ' +
           i +
-          'th most used password in the wordlist <a href="https://github.com/redfiles/rockyou.txt" target=_blank>rockyou.txt</a>';
+          '/' +
+          rockyou.length +
+          ' in the wordlist <a href="https://github.com/redfiles/rockyou.txt" target=_blank>rockyou.txt</a>';
         found = true;
         resultsDiv.classList.remove('safe');
         resultsDiv.classList.add('found');
